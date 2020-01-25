@@ -1,7 +1,10 @@
 package hero.springframework.didemo;
 
 import hero.springframework.didemo.beans.MyBean;
+import hero.springframework.didemo.controllers.ConstructorInjectedController;
 import hero.springframework.didemo.controllers.MyController;
+import hero.springframework.didemo.controllers.PropertyInjectedController;
+import hero.springframework.didemo.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -11,15 +14,21 @@ public class DiDemoApplication {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = SpringApplication.run(DiDemoApplication.class, args);
+        ApplicationContext ctx = SpringApplication.run(DiDemoApplication.class, args);
 
-        MyController myController = (MyController)context.getBean("myController");
+        MyController myController = (MyController)ctx.getBean("myController");
 
         myController.hello();
 
-        MyBean myBean = (MyBean) context.getBean("myBean");
+        MyBean myBean = (MyBean) ctx.getBean("myBean");
 
         myBean.echo();
+
+        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
+
+        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
+
+        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
     }
 
 }

@@ -1,7 +1,9 @@
 package hero.springframework.didemo.controllers;
 
 import hero.springframework.didemo.service.GreetingService;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class ConstructorInjectedController {
 
     private GreetingService greetingService;
