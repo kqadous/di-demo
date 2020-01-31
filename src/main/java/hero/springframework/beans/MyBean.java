@@ -1,4 +1,4 @@
-package hero.springframework.didemo.beans;
+package hero.springframework.beans;
 
 import org.springframework.stereotype.Component;
 
