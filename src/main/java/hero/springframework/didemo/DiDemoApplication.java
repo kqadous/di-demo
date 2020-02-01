@@ -1,6 +1,7 @@
 package hero.springframework.didemo;
 
 import hero.springframework.beans.MyBean;
+import hero.springframework.didemo.beans.FakeDataSource;
 import hero.springframework.didemo.controllers.ConstructorInjectedController;
 import hero.springframework.didemo.controllers.MyController;
 import hero.springframework.didemo.controllers.PropertyInjectedController;
@@ -31,6 +32,10 @@ public class DiDemoApplication {
         System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
 
         System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+
+        FakeDataSource fakeDataSource = (FakeDataSource)ctx.getBean(FakeDataSource.class);
+
+        System.out.println("Fake datasource dbURL>>>> " +fakeDataSource.getDbURL());
     }
 
 }
