@@ -3,6 +3,7 @@ package hero.springframework.didemo;
 import hero.springframework.beans.MyBean;
 import hero.springframework.didemo.beans.FakeDataSource;
 import hero.springframework.didemo.beans.FakeJmsBroker;
+import hero.springframework.didemo.beans.FakeYamlTest;
 import hero.springframework.didemo.controllers.ConstructorInjectedController;
 import hero.springframework.didemo.controllers.MyController;
 import hero.springframework.didemo.controllers.PropertyInjectedController;
@@ -36,11 +37,21 @@ public class DiDemoApplication {
 
         FakeDataSource fakeDataSource = (FakeDataSource)ctx.getBean(FakeDataSource.class);
 
-        System.out.println("Fake datasource dbURL>>>> " +fakeDataSource.getDbURL());
+        System.out.println("Fake datasource username>>>> " +fakeDataSource.getUsername());
 
         FakeJmsBroker fakeJmsBroker = (FakeJmsBroker)ctx.getBean("fakeJmsBroker");
 
         System.out.println("Fake jms URL>>>> " +fakeJmsBroker.getUrl());
+
+        FakeYamlTest fakeYamlTest = (FakeYamlTest)ctx.getBean(FakeYamlTest.class);
+
+        System.out.println("================== Test Yaml Start =================");
+        System.out.println("name:" +fakeYamlTest.getName() );
+
+        System.out.println("Set Size::"+fakeYamlTest.getMyList().size());
+
+        fakeYamlTest.getMyList().stream().forEach(listItem -> System.out.println("List Item:"+listItem));
+        System.out.println("================== Test Yaml End =================");
     }
 
 }

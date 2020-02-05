@@ -1,0 +1,36 @@
+# This is a comment
+
+name: Khalil Qadous
+
+sign_char: "$,%,#"
+
+colon_staring: "The truth is: I'm the iron man"
+
+my:
+  list:
+  - Item 1
+  - Item 2
+  - Item 3
+  - Item 4
+
+tex_with_new_lines: |
+    This is my first testing for yaml,
+  Its a  wondorful plugin that
+  you ever use
+
+
+text_without_new_lines: >
+  This the text
+  without new lines
+
+book:
+  author: Khalil
+  publisher: Wolf Street
+
+true: yes
+
+True: true #true, yes , TRUE , True
+
+false: no
+
+False: False # false, no, False, FALSE
